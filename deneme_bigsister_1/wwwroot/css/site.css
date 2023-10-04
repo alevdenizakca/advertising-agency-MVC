@@ -1,63 +1,64 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 html {
-  font-size: 14px;
-  font-family: 'Sans Serif Collection';
-
+    font-size: 14px;
+    font-family: 'Pixelify Sans', cursive;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
-
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
-  font-size: 1.6rem;
-  line-height: 1.5;
-  text-align: center;
-  background-color: antiquewhite;
-  color: black;
+    margin-bottom: 60px;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-align: center;
+    background-color: #FFFFFF;
+    color: black;
+    font-family: 'Pixelify Sans', cursive;
 }
+
     body .bg-image {
-        background-image: url('../images/logo-social.png');
+        background-image: url('../images/giphy.gif');
         background-size: cover;
         background-position: center;
         height: 45rem;
         width: 100%;
-        opacity: 0.4;
+        opacity: 1;
     }
 
-a{
+a {
     text-decoration: none;
 }
 
 
 
-header{
-    height:7rem;
+header {
+    height: 7rem;
 }
 
 section {
     margin: 1.6rem 0 0.8rem 0;
 }
-.section-header{
+
+.section-header {
     margin-top: 1.6rem;
     margin-bottom: 0.8rem;
     text-align: center;
 }
+
 .section1 {
     background-image: url('../images/section1.gif');
     background-size: cover;
@@ -66,44 +67,46 @@ section {
     width: 100%;
     opacity: 0.4;
 }
+
 .section2 {
-    width: 90%;
+    width: 100%;
     margin: auto;
-    margin-top: 8rem;
     display: inline-block;
-    text-align: left;
+    text-align: center;
 }
-    .section2 .card {
-        width: 18rem;
-        margin-right: 0.8rem;
-        margin-bottom: 0.8rem;
-        display: inline-block;
-    }
+
+.black {
+    background-color: #111111;
+    color: white;
+}
+
+.section2 .card {
+    width: 18rem;
+    margin-right: 0.8rem;
+    margin-bottom: 0.8rem;
+    display: inline-block;
+}
 
 @media (min-width: 576px) {
     .layout-content {
-        
         max-width: 540px;
     }
 }
 
 @media (min-width: 768px) {
     .layout-content {
-        
         max-width: 720px;
     }
 }
 
 @media (min-width: 992px) {
     .layout-content {
-        
         max-width: 960px;
     }
 }
 
 @media (min-width: 1200px) {
     .layout-content {
-        
         max-width: 1140px;
     }
 }
@@ -116,30 +119,63 @@ section {
 
 @media (min-width: 1600px) {
     .layout-content {
-        
         max-width: 1530px;
     }
 }
+
 @media (min-width: 1900px) {
     .layout-content {
-        
         max-width: 1830px;
     }
 }
 
-.container1 {
-    margin-left: auto;
-    margin-right: auto;
+.container2 {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.cards {
     display: flex;
     flex-wrap: wrap;
-    
+    justify-content: center;
+    color: #111111;
+    margin-bottom: 5rem;
 }
 
 .card {
     position: relative;
     text-align: left;
     font-size: 1.1rem;
-    margin: 1.6rem;
+    margin-top: 1.6rem;
+    width: 10rem;
+    border-radius: 1rem;
 }
 
+    .card:hover {
+        transform: scale(1.05);
+        transition: transform 0.5s ease;
+    }
 
+    .card .card-img-top {
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+    }
+
+.card-content {
+    border-radius: 1rem;
+}
+
+.navbar-collapse.show {
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000; /* Navbar'ýn üstte olmasýný saðlar */
+    background-color: white;
+}
+
+.navbar-collapse.collapsing {
+    background-color: white;
+}
+
+nav ul li:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s ease;
+}
