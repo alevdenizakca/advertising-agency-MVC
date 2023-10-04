@@ -1,0 +1,145 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+  font-family: 'Sans Serif Collection';
+
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+
+}
+
+body {
+  margin-bottom: 60px;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  text-align: center;
+  background-color: antiquewhite;
+  color: black;
+}
+    body .bg-image {
+        background-image: url('../images/logo-social.png');
+        background-size: cover;
+        background-position: center;
+        height: 45rem;
+        width: 100%;
+        opacity: 0.4;
+    }
+
+a{
+    text-decoration: none;
+}
+
+
+
+header{
+    height:7rem;
+}
+
+section {
+    margin: 1.6rem 0 0.8rem 0;
+}
+.section-header{
+    margin-top: 1.6rem;
+    margin-bottom: 0.8rem;
+    text-align: center;
+}
+.section1 {
+    background-image: url('../images/section1.gif');
+    background-size: cover;
+    background-position: center;
+    height: 45rem;
+    width: 100%;
+    opacity: 0.4;
+}
+.section2 {
+    width: 90%;
+    margin: auto;
+    margin-top: 8rem;
+    display: inline-block;
+    text-align: left;
+}
+    .section2 .card {
+        width: 18rem;
+        margin-right: 0.8rem;
+        margin-bottom: 0.8rem;
+        display: inline-block;
+    }
+
+@media (min-width: 576px) {
+    .layout-content {
+        
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .layout-content {
+        
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .layout-content {
+        
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .layout-content {
+        
+        max-width: 1140px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .layout-content {
+        max-width: 1320px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .layout-content {
+        
+        max-width: 1530px;
+    }
+}
+@media (min-width: 1900px) {
+    .layout-content {
+        
+        max-width: 1830px;
+    }
+}
+
+.container1 {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.card {
+    position: relative;
+    text-align: left;
+    font-size: 1.1rem;
+    margin: 1.6rem;
+}
+
+
