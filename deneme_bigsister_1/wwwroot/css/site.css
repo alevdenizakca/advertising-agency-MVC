@@ -31,7 +31,7 @@ body {
 }
 
     body .bg-image {
-        background-image: url('../images/giphy.gif');
+        background-image: url('../images/section1.gif');
         background-size: cover;
         background-position: center;
         height: 45rem;
@@ -71,6 +71,7 @@ section {
 .section2 {
     width: 100%;
     margin: auto;
+    margin-bottom: 1.6rem;
     display: inline-block;
     text-align: center;
 }
@@ -82,49 +83,56 @@ section {
 
 .section2 .card {
     width: 18rem;
-    margin-right: 0.8rem;
     margin-bottom: 0.8rem;
     display: inline-block;
 }
 
 @media (min-width: 576px) {
-    .layout-content {
+    .body {
         max-width: 540px;
     }
 }
 
 @media (min-width: 768px) {
-    .layout-content {
+    .body {
         max-width: 720px;
+    }
+    .mobile-only {
+        display: none; /* Mobil görünümleri gizle */
+    }
+}
+@media (max-width: 767px) {
+    .desktop-only {
+        display: none; /* Masaüstü görünümlerini gizle */
     }
 }
 
 @media (min-width: 992px) {
-    .layout-content {
+    .body {
         max-width: 960px;
     }
 }
 
 @media (min-width: 1200px) {
-    .layout-content {
+    .body {
         max-width: 1140px;
     }
 }
 
 @media (min-width: 1400px) {
-    .layout-content {
+    .body {
         max-width: 1320px;
     }
 }
 
 @media (min-width: 1600px) {
-    .layout-content {
+    .body {
         max-width: 1530px;
     }
 }
 
 @media (min-width: 1900px) {
-    .layout-content {
+    .body {
         max-width: 1830px;
     }
 }
@@ -136,19 +144,34 @@ section {
 
 .cards {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     color: #111111;
     margin-bottom: 5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    
 }
 
-.card {
+.carousel-item .card {
     position: relative;
-    text-align: left;
+    align-items: center;
     font-size: 1.1rem;
     margin-top: 1.6rem;
-    width: 10rem;
     border-radius: 1rem;
+    min-width: 25rem;
+    color: #111111;
+}
+
+.cards .card {
+    position: relative;
+    align-items: center;
+    font-size: 1.1rem;
+    margin-top: 1.6rem;
+    border-radius: 1rem;
+    min-width: 25rem;
+    margin-inline: 0.8rem;
+}
+#myCarousel {
+    height: 40rem; /* Carousel'ýn yüksekliðini ayarlayýn */
 }
 
     .card:hover {
@@ -178,4 +201,13 @@ section {
 nav ul li:hover {
     transform: scale(1.05);
     transition: transform 0.5s ease;
+}
+
+.slide-container{
+
+}
+
+.container a {
+    color: #111111; 
+    margin-inline: 1.6rem;
 }
