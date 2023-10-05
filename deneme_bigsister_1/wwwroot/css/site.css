@@ -82,7 +82,7 @@ section {
 }
 
 .section2 .card {
-    width: 18rem;
+    width: 17rem;
     margin-bottom: 0.8rem;
     display: inline-block;
 }
@@ -157,7 +157,7 @@ section {
     font-size: 1.1rem;
     margin-top: 1.6rem;
     border-radius: 1rem;
-    min-width: 25rem;
+    min-width: 24rem;
     color: #111111;
 }
 
@@ -167,7 +167,7 @@ section {
     font-size: 1.1rem;
     margin-top: 1.6rem;
     border-radius: 1rem;
-    min-width: 25rem;
+    min-width: 20rem;
     margin-inline: 0.8rem;
 }
 #myCarousel {
@@ -211,3 +211,21 @@ nav ul li:hover {
     color: #111111; 
     margin-inline: 1.6rem;
 }
+
+.iletisim {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-block: 5rem;
+    margin-bottom: 1rem;
+}
+
+.iletisim a{
+    color:#111111;
+}
+
+.iletisim a:hover{
+    text-decoration: underline;
+    
+}
+
