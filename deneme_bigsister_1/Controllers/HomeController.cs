@@ -13,12 +13,20 @@ namespace deneme_bigsister_1.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult anasayfa()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult hakkimizda()
+        {
+            return View();
+        }
+        public IActionResult islerimiz()
+        {
+            return View();
+        }
+        public IActionResult iletisim() 
         {
             return View();
         }
