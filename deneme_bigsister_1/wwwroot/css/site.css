@@ -6,12 +6,13 @@
 
 html {
     font-size: 14px;
-    font-family: 'Pixelify Sans', cursive;
+    font-family: 'Abril Fatface', cursive;
 }
 
 @media (min-width: 768px) {
     html {
         font-size: 16px;
+        
     }
 }
 
@@ -26,8 +27,8 @@ body {
     line-height: 1.5;
     text-align: center;
     background-color: #FFFFFF;
-    color: black;
-    font-family: 'Pixelify Sans', cursive;
+    color: #1d1d1e;
+    font-family: 'Abril Fatface', cursive;
 }
 
     body .bg-image {
@@ -41,9 +42,15 @@ body {
 
 a {
     text-decoration: none;
+    color: #1d1d1e;
+}
+a h2:hover{
+    transform: scale(1.05);
 }
 
-
+p {
+    font-family: 'Lato', sans-serif;
+}
 
 header {
     height: 7rem;
@@ -57,6 +64,7 @@ section {
     margin-top: 1.6rem;
     margin-bottom: 0.8rem;
     text-align: center;
+    color: #1d1d1e;
 }
 
 .section1 {
@@ -77,8 +85,8 @@ section {
 }
 
 .black {
-    background-color: #111111;
-    color: white;
+    background-color: #E8E8E8;
+    
 }
 
 .section2 .card {
@@ -148,7 +156,6 @@ section {
     margin-bottom: 5rem;
     flex-wrap: wrap;
     justify-content: center;
-    
 }
 
 .carousel-item .card {
@@ -156,9 +163,10 @@ section {
     align-items: center;
     font-size: 1.1rem;
     margin-top: 1.6rem;
-    border-radius: 1rem;
     min-width: 24rem;
     color: #111111;
+    border: 0.5rem solid #808080;
+    border-radius: 0;
 }
 
 .cards .card {
@@ -166,9 +174,10 @@ section {
     align-items: center;
     font-size: 1.1rem;
     margin-top: 1.6rem;
-    border-radius: 1rem;
     min-width: 20rem;
     margin-inline: 0.8rem;
+    border: 0.5rem solid #808080;
+    border-radius: 0;
 }
 #myCarousel {
     height: 40rem; /* Carousel'ýn yüksekliðini ayarlayýn */
@@ -180,16 +189,15 @@ section {
     }
 
     .card .card-img-top {
-        border-top-left-radius: 1rem;
-        border-top-right-radius: 1rem;
+        border-radius:0;
     }
 
 .card-content {
-    border-radius: 1rem;
+    
 }
 
 .navbar-collapse.show {
-    transition: transform 0.3s ease-in-out;
+
     z-index: 1000; /* Navbar'ýn üstte olmasýný saðlar */
     background-color: white;
 }
@@ -198,9 +206,16 @@ section {
     background-color: white;
 }
 
-nav ul li:hover {
+nav {
+    font-family: 'Abril Fatface', cursive;
+    color: #1d1d1e;
+}
+.navbar-nav li a{
+    color: #1d1d1e;
+}
+.navbar-nav li a:hover {
     transform: scale(1.05);
-    transition: transform 0.5s ease;
+    color:black;
 }
 
 .slide-container{
