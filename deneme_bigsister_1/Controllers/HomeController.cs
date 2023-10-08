@@ -1,4 +1,4 @@
-﻿using deneme_bigsister_1.Models;
+﻿using BigSister.Core.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
