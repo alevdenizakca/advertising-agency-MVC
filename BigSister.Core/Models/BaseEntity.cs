@@ -1,6 +1,6 @@
-﻿namespace deneme_bigsister_1.Models
+﻿namespace BigSister.Core.Models
 {
-    public class BaseEntity
+    public abstract class BaseEntity
     {
         public int Id { get; set; }
         public DateTime CreatedDate { get; set; }

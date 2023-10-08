@@ -1,4 +1,4 @@
-﻿namespace deneme_bigsister_1.Models
+﻿namespace BigSister.Core.Models
 {
     public class PageImage:BaseEntity
     {
