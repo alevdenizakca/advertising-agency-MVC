@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ConstantValue>
+@{
+    var instagram = Model.FirstOrDefault(x => x.Section == "instagram");
+    var facebook = Model.FirstOrDefault(x => x.Section == "facebook");
+    var linkedin = Model.FirstOrDefault(x => x.Section == "linkedin");
+    var twitter = Model.FirstOrDefault(x => x.Section == "twitter");
+    var phone = Model.FirstOrDefault(x => x.Section == "phone");
+    var location = Model.FirstOrDefault(x => x.Section == "location");
+    var email = Model.FirstOrDefault(x => x.Section == "email");
+    var iframeLocation = Model.FirstOrDefault(x =>x.Section == "iframeLocation");
+
+}
+<form asp-action="SosyalMedya" method="post">
+    <div class="form-group">
+        <label for="instagramLink">Instagram Link:</label>
+        <input type="text" class="form-control" id="instagramLink" placeholder="@instagram.Context" name="instagramLink" />
+    </div>
+    <div class="form-group">
+        <label for="facebookLink">Facebook Link:</label>
+        <input type="text" class="form-control" id="facebookLink" placeholder="@facebook.Context" name="facebookLink" />
+    </div>
+    <div class="form-group">
+        <label for="twitterLink">Twitter Link:</label>
+        <input type="text" class="form-control" id="twitterLink" placeholder="@twitter.Context" name="twitterLink" />
+    </div>
+    <div class="form-group">
+        <label for="linkedinLink">LinkedIn Link:</label>
+        <input type="text" class="form-control" id="linkedinLink" placeholder="@linkedin.Context" name="linkedinLink" />
+    </div>
+    <div class="form-group">
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" class="form-control" id="phoneNumber" placeholder="@phone.Context" name="phoneNumber" />
+    </div>
+    <div class="form-group">
+        <label for="locationLink">Location Link:</label>
+        <input type="text" class="form-control" id="locationLink" placeholder="@location.Context" name="locationLink" />
+    </div>
+    <div class="form-group">
+        <label for="iframeLocationLink">Harita Yerleştirme Linki:</label>
+        <input type="text" class="form-control" id="iframeLocationLink" placeholder="@iframeLocation.Context" name="iframeLocationLink" />
+    </div>
+    <div class="form-group">
+        <label for="emailAddress">Email Address:</label>
+        <input type="text" class="form-control" id="emailAddress" placeholder="@email.Context" name="emailAddress" />
+    </div>
+    <button type="submit" class="btn btn-primary">Gönder</button>
+</form>

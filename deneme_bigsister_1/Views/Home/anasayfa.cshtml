@@ -1,15 +1,22 @@
-﻿@{
+﻿@model List<WorkItem>
+@{
     ViewData["Title"] = "Anasayfa";
 }
 
 
-<div class="container1">
-    <div class="bg-image">
+<div class="container1 desktop-only">
+    <div class="bg-image" style="display:flex; align-items:center; justify-content: center">
+        <img src="/images/bigsistergif.gif" />
     </div>
 </div>
 
+<div class="mobile-only">
+    <div class="bg-image" style="display:flex; align-items:center; justify-content: center">
+        <img src="/images/bigsistergif.gif" style="width:100%" />
+    </div>
+</div>
 
-<section class="section2">
+<section class="section2 black">
     <div class="container2">
         <h1 class="section-header">Hakkımızda</h1>
         <p style="margin-left: 1.6rem; text-align:left">
@@ -17,75 +24,27 @@
         </p>
     </div>
 </section>
-<section class="section2 black">
+<section class="section2">
     <h1 class="section-header">İşlerimiz</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam congue mi nec gravida lobortis.</p>
     <div class="container2">
         <div class="mobile-only">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="card" style="width: 10rem;">
-                            <div class="card-content">
-                                <a class="cardlink" href="#"><img class="card-img-top"  src="~/images/logo.png" alt="Card image cap"></a>
-                                <div class="card-body">
-                                    <p class="card-text">1.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    @foreach (var item in Model)
+                    {
+                        <div class="carousel-item @(item == Model[0] ? "active" : "")">
+                            <div class="card" style="width: 10rem;">
+                                <div class="card-content">
+                                    <a class="cardlink" href="#"><img class="card-img-top" src="@item.ImageUrl" alt="Card image cap"></a>
+                                    <div class="card-body">
+                                        <p class="card-text">@item.Context</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="card" style="width: 10rem;">
-                            <div class="card-content">
-                                <a class="cardlink" href="#"><img class="card-img-top" src="~/images/logo.png" alt="Card image cap"></a>
-                                <div class="card-body">
-                                    <p class="card-text">2.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="card" style="width: 10rem;">
-                            <div class="card-content">
-                                <a class="cardlink" href="#"><img class="card-img-top" src="~/images/logo.png" alt="Card image cap"></a>
-                                <div class="card-body">
-                                    <p class="card-text">3.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="card" style="width: 10rem;">
-                            <div class="card-content">
-                                <a class="cardlink" href="#"><img class="card-img-top" src="~/images/logo.png" alt="Card image cap"></a>
-                                <div class="card-body">
-                                    <p class="card-text">4.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="card" style="width: 10rem;">
-                            <div class="card-content">
-                                <a class="cardlink" href="#"><img class="card-img-top" src="~/images/logo.png" alt="Card image cap"></a>
-                                <div class="card-body">
-                                    <p class="card-text">5.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="card">
-                            <div class="card-content">
-                                <a class="cardlink" href="#"><img class="card-img-top" src="~/images/logo.png" alt="Card image cap"></a>
-                                <div class="card-body">
-                                    <p class="card-text">6.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    }
                 </div>
-                <br />
                 <a href="~/home/islerimiz" class="btn-1"><h2 style="margin-block: 1rem; color:  #1d1d1e; text-decoration: underline;">Tümünü Gör</h2></a>
                 <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -97,60 +56,25 @@
         </div>
         <div class="desktop-only">
             <div class="cards">
-                <div class="card" style="width: 25rem;">
-                    <div class="card-content">
-                        <a class="cardlink" href="#"><img class="card-img-top" src="~/images/logo.png" alt="Card image cap"></a>
-                        <div class="card-body">
-                            <p class="card-text">1.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                @{
+                    foreach (var item in Model)
+                    {
+                        <div class="card" style="width: 25rem;">
+                            <div class="card-content">
+                                <a class="cardlink" href="#"><img class="card-img-top" src="@item.ImageUrl" alt="Card image cap"></a>
+                                <div class="card-body">
+                                    <p class="card-text">@item.Context</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="card" style="width: 25rem;">
-                    <div class="card-content">
-                        <a class="cardlink" href="#"><img class="card-img-top" src="~/images/logo.png" alt="Card image cap"></a>
-                        <div class="card-body">
-                            <p class="card-text">2.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card" style="width: 25rem;">
-                    <div class="card-content">
-                        <a class="cardlink" href="#"><img class="card-img-top" src="~/images/logo.png" alt="Card image cap"></a>
-                        <div class="card-body">
-                            <p class="card-text">3.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card" style="width: 25rem;">
-                    <div class="card-content">
-                        <a class="cardlink" href="#"><img class="card-img-top" src="~/images/logo.png" alt="Card image cap"></a>
-                        <div class="card-body">
-                            <p class="card-text">4.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card" style="width: 25rem;">
-                    <div class="card-content">
-                        <a class="cardlink" href="#"><img class="card-img-top" src="~/images/logo.png" alt="Card image cap"></a>
-                        <div class="card-body">
-                            <p class="card-text">5.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card" style="width: 25rem;">
-                    <div class="card-content">
-                        <a class="cardlink" href="#"><img class="card-img-top" src="~/images/logo.png" alt="Card image cap"></a>
-                        <div class="card-body">
-                            <p class="card-text">6.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
+                    }
+                }
             </div>
             <a href="~/home/islerimiz" class="btn-1"><h2 style="margin-block: 2rem; color: #1d1d1e; text-decoration: underline;">Tümünü Gör</h2></a>
         </div>
     </div>
 </section>
-<section class="section2">
+<section class="section2 black">
     <h1 class="section-header">İletişim</h1>
     <div class="cantainer2">
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in sodales tortor.</p>
@@ -158,17 +82,16 @@
     </div>
     <div class="container2">
         <div class="iletisim">
-            <a style="margin-right: 20px;color: #1d1d1e" href="tel:+905555555555">+90 555 555 5555</a>
-            <div>
-                <a style="color: #1d1d1e" href="https://maps.app.goo.gl/uQTHFri9661BoUSLA" target="_blank">Konum Göster</a>
+            <a style="margin-right: 20px;color: #1d1d1e" href="tel:@ViewBag.Phone">@ViewBag.Phone</a>
+            <div class="mobile-only">
+                <a style="color: #1d1d1e" href="@ViewBag.Location" target="_blank">Konum Göster</a>
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
                     <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
                     <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                 </svg>
             </div>
-            <a style="color: #1d1d1e" href="mailto:info@bigsister.com">info@bigsister.com</a>
+            <a style="color: #1d1d1e" href="mailto:@ViewBag.Email">@ViewBag.Email</a>
         </div>
-        
     </div>
 </section>
 

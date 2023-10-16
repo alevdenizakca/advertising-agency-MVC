@@ -1,0 +1,20 @@
+﻿@using BigSister.Core.DTOs;
+
+@model List<WorkItemDto>
+
+<div class="cards">
+    @{
+        foreach (WorkItemDto work in Model)
+        {
+            <div class="card" style="width: 25rem;">
+                <div class="card-content">
+                    <a class="cardlink" href="#"><img class="card-img-top" style="height: 25rem" src="@work.ImageUrl" alt="Card image cap"></a>
+                    <div class="card-body">
+                        <p class="card-text">@work.Context</p>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+<a href="~/home/islerimiz" class="btn-1"><h2 style="margin-block: 2rem; color: #1d1d1e; text-decoration: underline;">Tümünü Gör</h2></a>

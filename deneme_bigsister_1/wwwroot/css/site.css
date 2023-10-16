@@ -6,7 +6,6 @@
 
 html {
     font-size: 14px;
-    font-family: 'Abril Fatface', cursive;
 }
 
 @media (min-width: 768px) {
@@ -23,30 +22,25 @@ html {
 
 body {
     margin-bottom: 60px;
-    font-size: 1.6rem;
+    font-size: 1rem;
     line-height: 1.5;
     text-align: center;
     background-color: #FFFFFF;
     color: #1d1d1e;
-    font-family: 'Abril Fatface', cursive;
+    font-family: 'Playfair Display'
 }
 
     body .bg-image {
-        background-image: url('../images/section1.gif');
-        background-size: cover;
-        background-position: center;
-        height: 45rem;
-        width: 100%;
-        opacity: 1;
+        height: 35rem;
     }
 
 a {
-    text-decoration: none;
-    color: #1d1d1e;
+    
 }
 a h2:hover{
     transform: scale(1.05);
 }
+
 
 p {
     font-family: 'Lato', sans-serif;
@@ -188,9 +182,12 @@ section {
         transition: transform 0.5s ease;
     }
 
-    .card .card-img-top {
-        border-radius:0;
-    }
+.card .card-img-top {
+    border-radius: 0;
+    height: 25rem;
+    object-fit: cover; /* Fotoðrafý ortalayarak boyutlarýný korur */
+    object-position: center center; /* Fotoðrafý ortalar */
+}
 
 .card-content {
     
@@ -243,4 +240,3 @@ nav {
     text-decoration: underline;
     
 }
-

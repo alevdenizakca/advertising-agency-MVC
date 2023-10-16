@@ -1,0 +1,38 @@
+﻿@using BigSister.Core.DTOs;
+
+@model WorkItemDto
+
+<div class="row" style="text-align:start; font-family:Arial; font-size: 1rem; margin-left:5rem">
+    <div class="col-md-6">
+        <form asp-action="WorkItemEkle" method="post" asp-controller="Admin" enctype="multipart/form-data">
+       
+            <div class="form-group">
+                <label asp-for="Title">Başlık</label>
+                <input asp-for="Title" class="form-control"/>
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label for="file">Fotoğraf Seçin</label>
+                <br />
+                <input type="file" name="file" id="file" />
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Context">İçerik</label>
+                <input asp-for="Context" class="form-control" />
+                <span asp-validation-for="Context" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Order"></label>
+                <input asp-for="Order" class="form-control" />
+                <span asp-validation-for="Order" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Kaydet" class="btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

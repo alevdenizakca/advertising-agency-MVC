@@ -41,6 +41,11 @@ namespace BigSister.Service.Services
             return await _repository.GetAll().ToListAsync();
         }
 
+        public async Task<IQueryable<T>> GetAllQueryableAsync()
+        {
+            return _repository.GetAll().AsQueryable();
+        }
+
         public async Task<T> GetByIdAsync(int id)
         {
             var hasProduct = await _repository.GetByIdAsync(id);
@@ -68,6 +73,12 @@ namespace BigSister.Service.Services
         public async Task UpdateAsync(T entity)
         {
             _repository.Update(entity);
+            await _unitOfWork.CommitAsync();
+        }
+
+        public async Task UpdateRangeAsync(IEnumerable<T> entities)
+        {
+            _repository.UpdateRange(entities);
             await _unitOfWork.CommitAsync();
         }
 

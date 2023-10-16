@@ -1,3 +1,36 @@
 ﻿@{
     ViewData["Title"] = "İletişim";
 }
+@model IEnumerable<ConstantValue>
+@{
+    var instagram = Model.FirstOrDefault(x => x.Section == "instagram");
+    var facebook = Model.FirstOrDefault(x => x.Section == "facebook");
+    var linkedin = Model.FirstOrDefault(x => x.Section == "linkedin");
+    var twitter = Model.FirstOrDefault(x => x.Section == "twitter");
+    var phone = Model.FirstOrDefault(x => x.Section == "phone");
+    var location = Model.FirstOrDefault(x => x.Section == "location");
+    var email = Model.FirstOrDefault(x => x.Section == "email");
+    var iframeLocation = Model.FirstOrDefault(x => x.Section == "iframeLocation");
+
+}
+<section class="section2" style="margin-top:8rem">
+    <h1 class="section-header">İletişim</h1>
+    <div class="cantainer2">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in sodales tortor.</p>
+        <iframe class="desktop-only" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.4940839587725!2d28.989238512088995!3d41.036323117577226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab77a71e3dff3%3A0xc0c3129c7abee08c!2sStudio%20Mavi%20Beyaz!5e0!3m2!1str!2str!4v1696517019976!5m2!1str!2str" style="border:0; border-radius:1rem; width:50rem; height:25rem;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="container2">
+        <div class="iletisim">
+            <a style="margin-right: 20px;color: #1d1d1e" href="tel:@phone.Context">@phone.Context</a>
+            <div class="mobile-only">
+                <a style="color: #1d1d1e" href="@location.Context" target="_blank">Konum Göster</a>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                    <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
+                    <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                </svg>
+            </div>
+            <a style="color: #1d1d1e" href="mailto:@email.Context">@email.Context</a>
+        </div>
+
+    </div>
+</section>

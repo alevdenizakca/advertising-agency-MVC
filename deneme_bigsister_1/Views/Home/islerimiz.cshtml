@@ -1,76 +1,31 @@
-﻿@{
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model IPagedList<WorkItem>
+@{
     ViewData["Title"] = "İşlerimiz";
 }
 
 
-<section class="section2 black">
+<section class="section2" style="margin-top:8rem">
     <h1 class="section-header">İşlerimiz</h1>
     <div class="container2">
         <div class="mobile-only">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="card" style="width: 10rem;">
-                            <div class="card-content">
-                                <a class="cardlink" href="#"><img class="card-img-top" src="~/images/logo.png" alt="Card image cap"></a>
-                                <div class="card-body">
-                                    <p class="card-text">1.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    @foreach(var item in Model)
+                    {
+                        <div class="carousel-item @(item == Model[0] ? "active" : "")">
+                            <div class="card" style="width: 10rem;">
+                                <div class="card-content">
+                                    <a class="cardlink" href="#"><img class="card-img-top" src="@item.ImageUrl" alt="Card image cap"></a>
+                                    <div class="card-body">
+                                        <p class="card-text">@item.Context</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="card" style="width: 10rem;">
-                            <div class="card-content">
-                                <a class="cardlink" href="#"><img class="card-img-top" src="~/images/logo.png" alt="Card image cap"></a>
-                                <div class="card-body">
-                                    <p class="card-text">2.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="card" style="width: 10rem;">
-                            <div class="card-content">
-                                <a class="cardlink" href="#"><img class="card-img-top" src="~/images/logo.png" alt="Card image cap"></a>
-                                <div class="card-body">
-                                    <p class="card-text">3.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="card" style="width: 10rem;">
-                            <div class="card-content">
-                                <a class="cardlink" href="#"><img class="card-img-top" src="~/images/logo.png" alt="Card image cap"></a>
-                                <div class="card-body">
-                                    <p class="card-text">4.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="card" style="width: 10rem;">
-                            <div class="card-content">
-                                <a class="cardlink" href="#"><img class="card-img-top" src="~/images/logo.png" alt="Card image cap"></a>
-                                <div class="card-body">
-                                    <p class="card-text">5.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="card" style="width: 10rem;">
-                            <div class="card-content">
-                                <a class="cardlink" href="#"><img class="card-img-top" src="~/images/logo.png" alt="Card image cap"></a>
-                                <div class="card-body">
-                                    <p class="card-text">6.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    }              
                 </div>
-                <a href="/Islerimiz" class="btn-1"><h2 style="margin-block: 1rem; color: #1d1d1e; text-decoration: underline;">Daha Fazla</h2></a>
                 <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 </a>
@@ -78,66 +33,29 @@
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 </a>
             </div>
+            <div style="display:flex; justify-content:center">
+                @Html.PagedListPager((IPagedList)Model,page=>Url.Action("islerimiz",new {page}))
+            </div>
         </div>
         <div class="desktop-only">
             <div class="cards">
-                <div class="card" style="width: 25rem;">
-                    <div class="card-content">
-                        <a class="cardlink" href="#"><img class="card-img-top" src="~/images/logo.png" alt="Card image cap"></a>
-                        <div class="card-body">
-                            <p class="card-text">1.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                @foreach (var item in Model)
+                {
+
+                    <div class="card" style="width: 25rem;">
+                        <div class="card-content">
+                            <a class="cardlink" href="#"><img class="card-img-top" src="@item.ImageUrl" alt="Card image cap"></a>
+                            <div class="card-body">
+                                <p class="card-text">@item.Context</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="card" style="width: 25rem;">
-                    <div class="card-content">
-                        <a class="cardlink" href="#"><img class="card-img-top" src="~/images/logo.png" alt="Card image cap"></a>
-                        <div class="card-body">
-                            <p class="card-text">2.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card" style="width: 25rem;">
-                    <div class="card-content">
-                        <a class="cardlink" href="#"><img class="card-img-top" src="~/images/logo.png" alt="Card image cap"></a>
-                        <div class="card-body">
-                            <p class="card-text">3.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card" style="width: 25rem;">
-                    <div class="card-content">
-                        <a class="cardlink" href="#"><img class="card-img-top" src="~/images/logo.png" alt="Card image cap"></a>
-                        <div class="card-body">
-                            <p class="card-text">1.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card" style="width: 25rem;">
-                    <div class="card-content">
-                        <a class="cardlink" href="#"><img class="card-img-top" src="~/images/logo.png" alt="Card image cap"></a>
-                        <div class="card-body">
-                            <p class="card-text">1.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card" style="width: 25rem;">
-                    <div class="card-content">
-                        <a class="cardlink" href="#"><img class="card-img-top" src="~/images/logo.png" alt="Card image cap"></a>
-                        <div class="card-body">
-                            <p class="card-text">1.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
+
+                }
             </div>
-            <button id="showSecondPageButton" type="button">Daha Fazla Göster</button>
+            <div style="display:flex; justify-content:center">
+                @Html.PagedListPager((IPagedList)Model,page=>Url.Action("islerimiz",new {page}))
+            </div>
         </div>
     </div>
-
-    <script>
-        // İlk sayfadaki kartları göstermek için JavaScript kullanabilirsiniz
-        
-        document.querySelector('#showSecondPageButton').addEventListener('click', function () {
-            document.querySelector('.desktop-only:last-child').style.display = 'block';
-        });
-    </script>
+</section>

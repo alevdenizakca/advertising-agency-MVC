@@ -69,5 +69,10 @@ namespace BigSister.Repository.Repositories
         {
             return _dbSet.Where(expression);
         }
+
+        public void UpdateRange(IEnumerable<T> entities)
+        {
+            _dbSet.UpdateRange(entities);
+        }
     }
 }
