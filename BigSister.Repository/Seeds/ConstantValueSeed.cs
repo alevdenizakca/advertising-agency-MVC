@@ -18,5 +18,6 @@ namespace BigSister.Repository.Seeds
                 new ConstantValue { Id = 7, Section = "email" },
                 new ConstantValue { Id = 8, Section = "iframeLocation" });
         }
+        
     }
 }

@@ -50,6 +50,14 @@ namespace BigSister.Repository.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ConcurrencyStamp = "d4b163ad-b9de-40a6-b134-12c577791d77",
+                            Name = "Admin"
+                        });
                 });
 
             modelBuilder.Entity("BigSister.Core.Models.AppUser", b =>

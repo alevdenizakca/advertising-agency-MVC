@@ -1,0 +1,34 @@
+﻿@using deneme_bigsister_1.Models;
+@model UserSignUpVM
+@{
+    Layout = null;
+}
+<head>
+    <link rel="stylesheet" href="~/css/register.css" asp-append-version="true" />
+</head>
+<body>
+    <form role="form" asp-action="Index">
+        <div class="container">
+            <h1>Kayıt Ekranı</h1>
+            
+            <hr>
+
+            <label><b>Kullanıcı Adı</b></label>
+            <input type="text" placeholder="Kullanıcı Adı Girin" asp-for="@Model.UserName" required>
+
+            <label><b>Şifre</b></label>
+            <input type="password" placeholder="Şifre Girin" asp-for="@Model.Password" required>
+
+            <label for="psw-repeat"><b>Şifre Tekrar</b></label>
+            <input type="password" placeholder="Şifreyi Tekrar Girin" asp-for="@Model.ConfirmPassword" required>
+            <hr>
+            <button type="submit" class="registerbtn">Kayıt ol</button>
+        </div>
+
+        <div class="container signin">
+            <p>Already have an account? <a href="/RegisterUser/Index/">Giriş Yap</a>.</p>
+        </div>
+    </form>
+</body>
+
+

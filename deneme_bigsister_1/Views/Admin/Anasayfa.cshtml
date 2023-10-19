@@ -2,6 +2,7 @@
 
 @model List<WorkItemDto>
 
+<a href="~/admin/workitemekle" class="btn btn-primary">Yeni İş Ekle</a>
 <div class="cards">
     @{
         foreach (WorkItemDto work in Model)
@@ -17,4 +18,4 @@
         }
     }
 </div>
-<a href="~/home/islerimiz" class="btn-1"><h2 style="margin-block: 2rem; color: #1d1d1e; text-decoration: underline;">Tümünü Gör</h2></a>
+

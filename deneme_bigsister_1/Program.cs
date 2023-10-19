@@ -1,3 +1,5 @@
+using Autofac.Core;
+using BigSister.Core.Models;
 using BigSister.Core.Repositories;
 using BigSister.Core.Services;
 using BigSister.Core.UnitOfWorks;
@@ -6,6 +8,7 @@ using BigSister.Repository.Repositories;
 using BigSister.Repository.UnitOfWork;
 using BigSister.Service.Mapping;
 using BigSister.Service.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -18,9 +21,11 @@ namespace deneme_bigsister_1
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<AppDbContext>();
+
             builder.Services.AddControllersWithViews();
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-            builder.Services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
+            builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
             builder.Services.AddAutoMapper(typeof(MapProfile));
             builder.Services.AddDbContext<AppDbContext>(x =>
@@ -29,6 +34,15 @@ namespace deneme_bigsister_1
                 {
                     option.MigrationsAssembly(Assembly.GetAssembly(typeof(AppDbContext)).GetName().Name);
                 });
+            });
+            builder.Services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = new PathString("/Login/Index");
+                options.Cookie.Name = "BigSisterCookie";
+                options.Cookie.HttpOnly = true;
+                options.Cookie.SameSite = SameSiteMode.Strict;
+                options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(15);
             });
 
             var app = builder.Build();
@@ -46,18 +60,13 @@ namespace deneme_bigsister_1
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=anasayfa}/{id?}");
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                  name: "Admin",
-                  pattern: "{area:exists}/{controller=Admin}/{action=Anasayfa}/{id?}"
-                );
-            });
+
 
             app.Run();
         }

@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
 using BigSister.Core.DTOs;
-using BigSister.Service.Services;
 using BigSister.Core.Models;
-using Microsoft.AspNetCore.Mvc;
 using BigSister.Core.Services;
-using NuGet.Packaging;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace deneme_bigsister_1.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private readonly IService<WorkItem> _workItemService;
@@ -77,11 +77,13 @@ namespace deneme_bigsister_1.Controllers
             }
             return View();
         }
+       
         public async Task<IActionResult> SosyalMedya()
         {
             var constantValues = await _constantValueService.GetAllAsync();
             return View(constantValues);
         }
+       
         [HttpPost]
         public async Task<IActionResult> SosyalMedya(string instagramLink, string facebookLink, string twitterLink, string linkedinLink, string phoneNumber, string locationLink, string emailAddress, string iframeLocationLink)
         {

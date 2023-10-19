@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BigSister.Repository.Migrations
 {
-    public partial class add_new_identity : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -48,6 +48,56 @@ namespace BigSister.Repository.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ConstantValues",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Context = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Section = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ConstantValues", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PageImages",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PageName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PageImages", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "WorkItems",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    Context = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Order = table.Column<int>(type: "int", nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WorkItems", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -156,6 +206,26 @@ namespace BigSister.Repository.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[] { 1, "d4b163ad-b9de-40a6-b134-12c577791d77", "Admin", null });
+
+            migrationBuilder.InsertData(
+                table: "ConstantValues",
+                columns: new[] { "Id", "Context", "CreatedDate", "Section", "UpdatedDate" },
+                values: new object[,]
+                {
+                    { 1, null, null, "instagram", null },
+                    { 2, null, null, "facebook", null },
+                    { 3, null, null, "twitter", null },
+                    { 4, null, null, "linkedin", null },
+                    { 5, null, null, "phone", null },
+                    { 6, null, null, "location", null },
+                    { 7, null, null, "email", null },
+                    { 8, null, null, "iframeLocation", null }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -212,6 +282,15 @@ namespace BigSister.Repository.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "ConstantValues");
+
+            migrationBuilder.DropTable(
+                name: "PageImages");
+
+            migrationBuilder.DropTable(
+                name: "WorkItems");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
